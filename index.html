@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Body Dimensions Estimation</title>
+    <style>
+        video {
+            transform: scaleX(-1);
+            display: block;
+        }
+
+        canvas {
+            transform: scaleX(-1);
+            display: block;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: lightblue;
+        }
+
+        input {
+            margin-left: 5px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            width: 40px;
+        }
+
+        #bodyContainer {
+            text-align: center;
+        }
+
+        /*#bodyDrgin-top: 20px;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<h1>Body Dimensions Estimation</h1>
+<div style="display: flex">
+    <p>Set your height (in cm) for more accurate solution</p>
+    <input type="number" id="myInput" min="0">
+</div>
+<video id="video" autoplay></video>
+<canvas id="canvas" width="640" height="480"></canvas>
+<div id="bodyDimensions">
+    <h2>Body Dimensions:</h2>
+    <ul>
+        <li id="height">Height:</li>
+        <li id="waistSize">Waist Size:</li>
+        <li id="hipsSize">Hips Size:</li>
+        <li id="chestSize">Chest Size:</li>
+    </ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.8.5/dist/tf.min.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet@2.2.1/dist/posenet.js"></script>-->
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet@2.2.1/dist/posenet.min.js"></script>
+
+<script src="app.js"></script>
+</body>
+</html>
