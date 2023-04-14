@@ -27,3 +27,27 @@ The Pose Estimation App is based on the Posenet model and TensorFlow.js library.
 TensorFlow.js: https://www.tensorflow.org/js
 Posenet: https://github.com/tensorflow/tfjs-models/tree/master/posenet
 Note: Update the credits, references, and license sections with appropriate information based on your specific use case and licensing requirements.
+
+### Code
+Example to calculate the dimensions without using the keypoints indexes
+```
+// Get keypoint coordinates for specific body parts
+const nose = pose.keypoints.find(keypoint => keypoint.part === 'nose').position;
+const leftShoulder = pose.keypoints.find(keypoint => keypoint.part === 'leftShoulder').position;
+const rightShoulder = pose.keypoints.find(keypoint => keypoint.part === 'rightShoulder').position;
+const leftHip = pose.keypoints.find(keypoint => keypoint.part === 'leftHip').position;
+const rightHip = pose.keypoints.find(keypoint => keypoint.part === 'rightHip').position;
+const leftAnkle = pose.keypoints.find(keypoint => keypoint.part === 'leftAnkle').position;
+
+// Calculate height as the distance between nose and leftAnkle
+const height = Math.abs(nose.y - leftAnkle.y);
+
+// Calculate waist size as the distance between leftHip and rightHip
+const waistSize = Math.abs(leftHip.x - rightHip.x);
+
+// Calculate hip size as the distance between leftHip and rightHip
+const hipsSize = Math.abs(leftHip.x - rightHip.x);
+
+// Calculate chest size as the distance between leftShoulder and rightShoulder
+const chestSize = Math.abs(leftShoulder.x - rightShoulder.x);
+```
